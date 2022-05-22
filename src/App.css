@@ -9,4 +9,16 @@
 
 .App{
     padding: 2rem 4rem;
+    height: 100vh;
+    transition: 1500ms;
+}
+
+.App .add-budget-class{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.App .blur{
+    filter: blur(3px);
 }
