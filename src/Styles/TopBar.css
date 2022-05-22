@@ -1,0 +1,43 @@
+.top-bar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-bar-container p{
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.top-bar-container div button{
+    width: 9rem;
+    padding: .5rem 0rem;
+    font-size: 1.2rem;
+    outline: none;
+    background-color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.top-bar-container div .add-budget-button{
+    background-color: rgb(6, 155, 255);
+    color: #fff;
+    margin-right: 1.5rem;
+    outline: 2px solid black;
+    transition: background-color .4s;
+}
+
+.top-bar-container div .add-budget-button:hover{
+    background-color: rgb(9, 139, 226);
+}
+
+.top-bar-container div .add-expense-button{
+    background-color: #fff;
+    outline: 2px solid rgb(6, 155, 255);
+    transition: background-color .4s;
+}
+
+.top-bar-container div .add-expense-button:hover{
+    background-color: rgb(243, 243, 243);
+}
