@@ -1,61 +1,94 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import AddBudget from './Components/AddBudget';
-import BudgetElement from './Components/BudgetElement';
+import ExpenseHeader from './Components/ExpenseHeader';
 import TopBar from './Components/TopBar';
+import Expenses from './Components/Expenses';
+import AddExpense from './Components/AddExpense';
+import SetBudget from './Components/SetBudget';
 
 function App() {
 
-  const [show, setShow] = useState(false);
-  const [budget, setBudget] = useState(JSON.parse(localStorage.getItem('BudgetElements')) || []);
-  const [name, setName] = useState('');
-  const [amount, setAmount] = useState(0);
+  const [showAddExp, setShowAddExp] = useState(false);
+  const [showSetBudget, setShowSetBudget] = useState(false)
+  const [expenses, setExpenses] = useState(JSON.parse(localStorage.getItem('ExpenseElements')) || []);
+  const [expName, setExpName] = useState('');
+  const [expCost, setExpCost] = useState('');
+  const [budget, setBudget] = useState(JSON.parse(localStorage.getItem('Budget')) || '');
 
+  
   useEffect(() => {
-    localStorage.setItem('BudgetElements', JSON.stringify(budget));
-  }, [budget]);
+    localStorage.setItem('ExpenseElements', JSON.stringify(expenses));
+  }, [expenses]);
 
-  // {
-  //   id: 1;
-  //   Name: x;
-  //   amount: y;
-  // }
-
-  function addBudget(){
-    setBudget((prevBudget) => {
-      if(prevBudget.find(budget => budget.name === name)){
-        return prevBudget
-      }
-      return [...prevBudget, {id: budget.length + 1, name: name, amount: amount}]
+  function addExpense(){
+    setExpenses((prevExpenses) => {
+      return [...prevExpenses, {id: expenses.length + 1, name:expName, cost: expCost * 1}]
     });
-    setShow(false);
-    setName('');
-    setAmount(0)
+    setExpName('');
+    setExpCost('');
   };
 
+  const deleteExpense = (exp) => {
+    setExpenses(expenses.filter((element) => element.id !== exp))
+  };
+
+  function setBudgetToStorage(){
+    localStorage.setItem('Budget', JSON.stringify(budget));
+    setShowSetBudget(false)
+  };
+
+  const sumOfExpCost = expenses.reduce((a, b) => {return a += b.cost}, 0);
+  const remaining = budget * 1 - sumOfExpCost;
+  const progressBar = (sumOfExpCost / (budget * 1)) * 100;
+
   return (
-    <div className="App">
-      <div  className={show ? 'blur' : ''}>
+    <div  className='App' style={{ backgroundColor: `${progressBar > 100 ? 'rgba(255,0,0,.2)' : ''}`}}>
+      <div className={showAddExp || showSetBudget ? 'filter-blur-on' : ''}> 
         <TopBar 
-          show={show}
-          setShow={setShow}
-        />
-        <BudgetElement />
+          showAddExp={showAddExp}
+          setShowAddExp={setShowAddExp}
+          expenses={expenses}
+          setShowSetBudget={setShowSetBudget}
+          budget={budget}
+          sumOfExpCost={sumOfExpCost}
+          remaining={remaining}
+          progressBar={progressBar}
+        /> 
+        <ExpenseHeader />
+        <div className='expense-div'> 
+          {expenses.map((element) => {
+            return (
+              <Expenses 
+                expense={element}
+                key={element.id}
+                name={element.name}
+                cost={element.cost}
+                deleteExpense={deleteExpense}
+              />
+            )
+          })}    
+        </div>
       </div>
-      <div className='add-budget-class'>
-        <AddBudget 
-          show={show}
-          setShow={setShow}
-          name={name}
-          setName={setName}
-          amount={amount}
-          setAmount={setAmount}
-          addBudget={addBudget}
+      <div className='app-components'>
+        <AddExpense 
+          showAddExp={showAddExp}
+          setShowAddExp={setShowAddExp}
+          expName={expName}
+          setExpName={setExpName}
+          expCost={expCost}
+          setExpCost={setExpCost}
+          addExpense={addExpense}
+        />
+        <SetBudget 
+          showSetBudget={showSetBudget}
+          setShowSetBudget={setShowSetBudget}
+          budget={budget}
+          setBudget={setBudget}
+          setBudgetToStorage={setBudgetToStorage}
         />
       </div>
-      
     </div>
-  );
+  )
 }
 
 export default App;

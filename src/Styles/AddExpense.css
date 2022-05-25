@@ -1,0 +1,91 @@
+.add-expense-container{
+    position: absolute;
+    height: 17rem;
+    width: 30rem;
+    background-color: #fff;
+    outline: 2px solid rgb(29, 120, 224);
+    padding: 1rem 2rem;
+    transition: 1s;
+    border-radius: .5rem;
+}
+
+#show-add-expense{
+    top: 7rem;
+}
+
+#hide-add-expense{
+    top: -20rem;
+}
+
+.add-expense-header{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid rgb(196, 194, 194);
+}
+
+.add-expense-header button{
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-weight: 900;
+    cursor: pointer;
+    transition: color .4s;
+}
+
+.add-expense-header button:hover{
+    color: red;
+}
+
+.add-expense-components{
+    margin-top: 1rem;
+}
+
+.add-expense-components div p{
+    font-size: 1.3rem;
+    margin-top: 1rem;
+}
+
+.add-expense-components div input{
+    margin-top: .3rem;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 0rem .5rem;
+    outline: none;
+    border: none;
+    height: 2rem;
+    border-bottom: 1px solid rgb(29, 120, 224);
+}
+
+.add-expense-button{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-expense-button button{
+    padding: .3rem .6rem;
+    font-size: 1.3rem;
+    outline: none;
+    margin-top: 1rem;
+    background-color: rgb(29, 120, 224);
+    color: #fff;
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+    transition: background-color .5s;
+}
+
+.add-expense-button button:hover{
+    background-color: rgb(3, 75, 158);
+}
+
+@media screen and (max-width: 600px) {
+    .add-expense-container{
+        width: calc(100% - 4rem);
+    }
+    
+}

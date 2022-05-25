@@ -1,44 +1,132 @@
-.top-bar-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 5rem;
-}
-
-.top-bar-container p{
+.top-bar-container .top-bar-header p{
     font-size: 2.5rem;
     font-weight: 900;
 }
 
-.top-bar-container div button{
-    width: 9rem;
-    padding: .5rem 0rem;
+.top-bar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-container .top-bar-header button {
+    padding: .6rem 1.5rem;
     font-size: 1.2rem;
-    outline: none;
-    background-color: transparent;
-    border-radius: 10px;
-    cursor: pointer;
+    border-radius: .5rem;
     border: none;
+    outline: 2px solid rgb(58, 94, 255);
+    background-color: transparent;
+    transition: .4s;
+    cursor: pointer;
 }
 
-.top-bar-container div .add-budget-button{
-    background-color: rgb(6, 155, 255);
+.top-bar-container .top-bar-header button:hover {
+    background-color: rgb(58, 94, 255);
     color: #fff;
-    margin-right: 1.5rem;
-    outline: 2px solid black;
-    transition: background-color .4s;
 }
 
-.top-bar-container div .add-budget-button:hover{
-    background-color: rgb(9, 139, 226);
+.top-bar-container .top-bar-elements{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
 }
 
-.top-bar-container div .add-expense-button{
-    background-color: #fff;
-    outline: 2px solid rgb(6, 155, 255);
-    transition: background-color .4s;
+.top-bar-container .top-bar-elements div{
+    background-color: rgb(218, 218, 218);
+    width: 350px;
+    height: 4rem;
+    padding: 0rem 2rem;
+    display: flex;
+    align-items: center;
+    border-radius: .3rem;
 }
 
-.top-bar-container div .add-expense-button:hover{
-    background-color: rgb(243, 243, 243);
+.top-bar-budget-element{
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.top-bar-budget-element button{
+    font-size: 1.2rem;
+    padding: .2rem .5rem;
+    border-radius: .3rem;
+    outline: none;
+    border: none;
+    background-color: rgb(58, 94, 255);
+    color: #fff;
+    cursor: pointer;
+} 
+
+.top-bar-progress-bar{
+    margin-top: 2rem;
+    height: 1.7rem;
+    background-color: rgb(236, 236, 236);
+    border-radius: 1rem;
+    overflow: hidden;
+    outline: 1px solid rgb(196, 194, 194);
+}
+
+.inner-progress-bar{
+    height: 1.7rem;
+    border-radius: 1rem;
+    transition: 1500ms;
+    display: flex;
+    align-items: center;
+}
+
+.inner-progress-bar p{
+    width: 100%;
+    margin-left: 50%;
+}
+
+@media screen and (max-width: 1250px) {
+    .top-bar-container .top-bar-elements div{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .top-bar-container .top-bar-elements div{
+        width: 250px;
+    }
+    .top-bar-budget-element{
+        padding: 0rem 1rem 0rem 2rem;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .top-bar-container .top-bar-elements{
+        display: flex;
+        flex-direction: column;
+    }
+    .top-bar-container .top-bar-elements div{
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .top-bar-container .top-bar-header p{
+        font-size: 2.2rem;
+    } 
+    .top-bar-container .top-bar-header button {
+        padding: .4rem 1.2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .top-bar-container .top-bar-header p{
+        font-size: 2.5rem;
+    } 
+    .top-bar-container .top-bar-header button {
+        margin-top: 2rem;
+        padding: .5rem 1.5rem;
+    }
+    .top-bar-header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

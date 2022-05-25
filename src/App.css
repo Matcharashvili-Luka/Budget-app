@@ -8,17 +8,46 @@
 }
 
 .App{
-    padding: 2rem 4rem;
+    padding: 2rem 5rem;
     height: 100vh;
-    transition: 1500ms;
+    overflow: hidden;
 }
 
-.App .add-budget-class{
+@media screen and (max-width: 600px) {
+    .App{
+        height: 140vh;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .App{
+        padding: 2rem 2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .App{
+        padding: 2rem 1rem;
+    }
+}
+
+
+.expense-div{
+    margin-top: 2rem;
+    height: 18rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.expense-div::-webkit-scrollbar {
+    display: none;
+}
+
+.app-components{
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
-.App .blur{
+.filter-blur-on{
     filter: blur(3px);
 }

@@ -1,0 +1,69 @@
+.set-budget-container{
+    position: absolute;
+    height: 10rem;
+    width: 20rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid rgb(0, 132, 255);
+    flex-direction: column;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    transition: 1s;
+}
+
+.set-budget-container input{
+    font-size: 1.3rem;
+    padding: .2rem 1rem;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(0, 132, 255);
+    margin: 1rem 0rem;
+}
+
+.set-budget-container div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.set-budget-container .set-budget-button{
+    font-size: 1.2rem;
+    padding: .3rem 1rem;
+    background-color: rgb(0, 132, 255);
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: background-color .4s;
+}
+
+.set-budget-container .set-budget-button:hover{
+    background-color: rgb(7, 96, 179);
+}
+
+.set-budget-container div button{
+    font-weight: 900;
+    font-size: 1.3rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: color .4s;
+}
+
+.set-budget-container div button:hover{
+    color: red;
+}
+
+#show-set-budget{
+    top: 7rem;
+}
+
+#hide-set-budget{
+    top: -10rem;
+}
