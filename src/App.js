@@ -9,11 +9,13 @@ import SetBudget from './Components/SetBudget';
 function App() {
 
   const [showAddExp, setShowAddExp] = useState(false);
-  const [showSetBudget, setShowSetBudget] = useState(false)
+  const [showSetBudget, setShowSetBudget] = useState(false);
   const [expenses, setExpenses] = useState(JSON.parse(localStorage.getItem('ExpenseElements')) || []);
   const [expName, setExpName] = useState('');
   const [expCost, setExpCost] = useState('');
-  const [budget, setBudget] = useState(JSON.parse(localStorage.getItem('Budget')) || '');
+  const [budget, setBudget] = useState(JSON.parse(localStorage.getItem('Budget')) || ''); 
+  const [type, setType] = useState(); // <-- to select type
+  const [search, setSearch] = useState('');
 
   
   useEffect(() => {
@@ -22,7 +24,7 @@ function App() {
 
   function addExpense(){
     setExpenses((prevExpenses) => {
-      return [...prevExpenses, {id: expenses.length + 1, name:expName, cost: expCost * 1}]
+      return [...prevExpenses, { id: expenses.length + 1, name: expName, cost: expCost * 1, type: type }]
     });
     setExpName('');
     setExpCost('');
@@ -54,9 +56,20 @@ function App() {
           remaining={remaining}
           progressBar={progressBar}
         /> 
-        <ExpenseHeader />
+        <ExpenseHeader 
+          search={search}
+          setSearch={setSearch}
+        />
         <div className='expense-div'> 
-          {expenses.map((element) => {
+          {expenses.filter((expense) =>{
+            if(search === ''){
+              return expense
+            }else if(expense.name.toLowerCase().includes(search.toLowerCase())){
+              return expense
+            }else if(expense.type.toLowerCase().includes(search.toLowerCase())){
+              return expense
+            }
+          }).map((element) => {
             return (
               <Expenses 
                 expense={element}
@@ -64,9 +77,11 @@ function App() {
                 name={element.name}
                 cost={element.cost}
                 deleteExpense={deleteExpense}
+                type={element.type}
               />
-            )
-          })}    
+              )
+            })
+          }  
         </div>
       </div>
       <div className='app-components'>
@@ -78,6 +93,8 @@ function App() {
           expCost={expCost}
           setExpCost={setExpCost}
           addExpense={addExpense}
+          type={type}
+          setType={setType}
         />
         <SetBudget 
           showSetBudget={showSetBudget}

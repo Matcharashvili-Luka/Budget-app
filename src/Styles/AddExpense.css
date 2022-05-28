@@ -1,6 +1,6 @@
 .add-expense-container{
     position: absolute;
-    height: 17rem;
+    height: 21.5rem;
     width: 30rem;
     background-color: #fff;
     outline: 2px solid rgb(29, 120, 224);
@@ -14,7 +14,7 @@
 }
 
 #hide-add-expense{
-    top: -20rem;
+    top: -22rem;
 }
 
 .add-expense-header{
@@ -81,6 +81,14 @@
 
 .add-expense-button button:hover{
     background-color: rgb(3, 75, 158);
+}
+
+.add-expense-type{
+    margin-top: 1rem;
+}
+
+.add-expense-type p{
+    margin-bottom: .5rem;
 }
 
 @media screen and (max-width: 600px) {

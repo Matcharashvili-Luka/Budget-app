@@ -1,7 +1,8 @@
 import React from 'react';
 import '../Styles/AddExpense.css';
+import DropDownType from './DropDownType';
 
-function AddExpense({ showAddExp, setShowAddExp, expName, setExpName, expCost, setExpCost, addExpense }) {
+function AddExpense({ showAddExp, setShowAddExp, expName, setExpName, expCost, setExpCost, addExpense, type, setType }) {
   return (
     <div className='add-expense-container' id={showAddExp ? 'show-add-expense' : 'hide-add-expense'}>
         <div className='add-expense-header'>
@@ -28,6 +29,13 @@ function AddExpense({ showAddExp, setShowAddExp, expName, setExpName, expCost, s
                     required
                     value={expCost}
                     onChange={(e) => setExpCost(e.target.value)}
+                />
+            </div>
+            <div className='add-expense-type'>
+                <p>Type</p>
+                <DropDownType 
+                    type={type}
+                    setType={setType}
                 />
             </div>
             <div className='add-expense-button'>
