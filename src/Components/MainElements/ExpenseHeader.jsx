@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/ExpenseHeader.css'
+import '../../Styles/ExpenseHeader.css'
 
 function ExpenseHeader({ search, setSearch }) {
   return (

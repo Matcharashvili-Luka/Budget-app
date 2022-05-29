@@ -3,7 +3,10 @@ import '../Styles/SetBudget.css'
 
 function SetBudget({ showSetBudget, setShowSetBudget, budget, setBudget, setBudgetToStorage }) {
   return (
-    <div className='set-budget-container' id={showSetBudget ? 'show-set-budget' : 'hide-set-budget'}>
+    <div 
+      className='set-budget-container' 
+      id={showSetBudget ? 'show-set-budget' : 'hide-set-budget'}
+    >
         <div>
             <p>Budget Amount</p>
             <button onClick={() => setShowSetBudget(false)}>X</button>

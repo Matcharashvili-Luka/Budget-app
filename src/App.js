@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import ExpenseHeader from './Components/ExpenseHeader';
-import TopBar from './Components/TopBar';
-import Expenses from './Components/Expenses';
-import AddExpense from './Components/AddExpense';
+import './Styles/EditExpense.css';
+import './Styles/Expenses.css';
+import ExpenseHeader from './Components/MainElements/ExpenseHeader';
+import TopBar from './Components/MainElements/TopBar';
+import Expenses from './Components/MainElements/Expenses';
+import AddExpense from './Components/ExpenseManipulation/AddExpense';
 import SetBudget from './Components/SetBudget';
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
   const [expName, setExpName] = useState('');
   const [expCost, setExpCost] = useState('');
   const [budget, setBudget] = useState(JSON.parse(localStorage.getItem('Budget')) || ''); 
-  const [type, setType] = useState(); // <-- to select type
+  const [type, setType] = useState('Food'); // <-- to select type
   const [search, setSearch] = useState('');
 
   
@@ -45,7 +47,7 @@ function App() {
 
   return (
     <div  className='App' style={{ backgroundColor: `${progressBar > 100 ? 'rgba(255,0,0,.2)' : ''}`}}>
-      <div className={showAddExp || showSetBudget ? 'filter-blur-on' : ''}> 
+      <div id='main-container' className={showAddExp || showSetBudget ? 'filter-blur-on' : ''}> 
         <TopBar 
           showAddExp={showAddExp}
           setShowAddExp={setShowAddExp}
@@ -78,6 +80,8 @@ function App() {
                 cost={element.cost}
                 deleteExpense={deleteExpense}
                 type={element.type}
+                expenses={expenses}
+                setExpenses={setExpenses}
               />
               )
             })

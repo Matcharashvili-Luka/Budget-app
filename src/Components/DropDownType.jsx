@@ -6,7 +6,7 @@ function DropDownType({ type, setType }) {
     <div className='drop-down-type-container'>
         <select value={type} onChange={e => setType(e.target.value)}>     
             <option>Food</option>
-            <option>Medicine</option>
+            <option>Health</option>
             <option>Education</option>
             <option>Comunals</option>
             <option>Transport</option>

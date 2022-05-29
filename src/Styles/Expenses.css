@@ -15,11 +15,21 @@
     height: 100%;
 }
 
-.expense-element-container .expense-details i{
-    margin-left: 2rem;
+.expense-edit{
+    margin: 0rem 2rem;
+    background-color: green;
+    padding: .2rem .6rem;
+    color: #fff;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: background-color .4s;
 }
 
-.expense-details p{
+.expense-edit:hover{
+    background-color: rgb(1, 100, 1);
+}
+
+.expense-details .expense-amount{
     padding: .2rem .6rem;
     color: #fff;
     border-radius: 1rem;
@@ -36,6 +46,11 @@
     font-size: 1.5rem;
     color: rgb(48, 48, 48);
     cursor: pointer;
+    transition: color .4s;
+}
+
+.expense-details i:hover{
+    color: red;
 }
 
 .expense-header{
@@ -70,4 +85,10 @@
 
 .fa-circle-notch{
     color: purple;
+}
+
+@media screen and (max-width: 600px){
+    .expense-edit{
+        margin: 0rem 1rem;
+    }
 }

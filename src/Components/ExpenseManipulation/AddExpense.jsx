@@ -1,6 +1,6 @@
 import React from 'react';
-import '../Styles/AddExpense.css';
-import DropDownType from './DropDownType';
+import '../../Styles/AddExpense.css';
+import DropDownType from '../DropDownType';
 
 function AddExpense({ showAddExp, setShowAddExp, expName, setExpName, expCost, setExpCost, addExpense, type, setType }) {
   return (
