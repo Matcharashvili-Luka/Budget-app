@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import './Styles/EditExpense.css';
-import './Styles/Expenses.css';
 import ExpenseHeader from './Components/MainElements/ExpenseHeader';
 import TopBar from './Components/MainElements/TopBar';
 import Expenses from './Components/MainElements/Expenses';
@@ -80,8 +78,6 @@ function App() {
                 cost={element.cost}
                 deleteExpense={deleteExpense}
                 type={element.type}
-                expenses={expenses}
-                setExpenses={setExpenses}
               />
               )
             })

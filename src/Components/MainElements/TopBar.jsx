@@ -35,7 +35,7 @@ function TopBar({ setShowAddExp, setShowSetBudget, expenses, budget, sumOfExpCos
                     width: `${progressBar}%`,
                     backgroundColor: `${progressBar >= 95 ? 'red' : progressBar >= 75 ? 'yellow' : 'rgb(58, 94, 255)'}`
                 }}
-            ><p></p></div>
+            ></div>
         </div>
     </div>
   )

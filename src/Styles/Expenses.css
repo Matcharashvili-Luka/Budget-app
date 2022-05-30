@@ -15,21 +15,8 @@
     height: 100%;
 }
 
-.expense-edit{
-    margin: 0rem 2rem;
-    background-color: green;
-    padding: .2rem .6rem;
-    color: #fff;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: background-color .4s;
-}
-
-.expense-edit:hover{
-    background-color: rgb(1, 100, 1);
-}
-
 .expense-details .expense-amount{
+    margin: 0rem 2rem;
     padding: .2rem .6rem;
     color: #fff;
     border-radius: 1rem;
@@ -88,7 +75,7 @@
 }
 
 @media screen and (max-width: 600px){
-    .expense-edit{
+    .expense-details .expense-amount{
         margin: 0rem 1rem;
     }
 }
